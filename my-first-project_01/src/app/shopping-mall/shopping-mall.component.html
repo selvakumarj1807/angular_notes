@@ -1,6 +1,15 @@
-<h1>{{shoppingMallName}}</h1> 
-<app-shop></app-shop>
+<h1>{{shoppingMallName}}</h1>
+<app-shop *ngFor="let shop of shops"></app-shop>
 
+<input type="text" [(ngModel)]="shopName" />
+
+<button [disabled]="isButtonActive" (click)="onCreateShop()">Submit</button>
+
+<p *ngIf="isShopCreated;else noshop">Shop was created, shop name is {{shopName}}</p> <!-- * is structre deractive -->
+
+<ng-template #noshop>
+        <p>No shop was created</p>
+</ng-template>
 
 
 <!--
@@ -53,6 +62,8 @@ Example 2:
 
 4. Two-way-Binding :
 --------------------
+Example 1:
+----------
 
 <h1>{{shoppingMallName}}</h1>
 <app-shop></app-shop>
@@ -65,5 +76,62 @@ Example 2:
 <p>{{isButtonActive}}</p>
 
 <p>{{createNewShop}}</p>
+
+
+Example 2:
+----------
+
+        no change
+
+
+Example 3:
+----------
+        * is structre deractive. and *ngIf and *ngFor is a deractives so breifly explain that part.
+
+
+<h1>{{shoppingMallName}}</h1>
+<app-shop></app-shop>
+
+<input type="text" [(ngModel)]="shopName" />
+
+<button [disabled]="isButtonActive" (click)="onCreateShop()">Submit</button>
+
+<p *ngIf="isShopCreated">Shop was created, shop name is {{shopName}}</p> 
+
+
+Example 4:
+----------
+        noshop is a local referance name.
+
+
+<h1>{{shoppingMallName}}</h1>
+<app-shop></app-shop>
+
+<input type="text" [(ngModel)]="shopName" />
+
+<button [disabled]="isButtonActive" (click)="onCreateShop()">Submit</button>
+
+<p *ngIf="isShopCreated;else noshop">Shop was created, shop name is {{shopName}}</p> 
+
+<ng-template #noshop>
+        <p>No shop was created</p>
+</ng-template>
+
+
+Example 5:
+----------
+
+<h1>{{shoppingMallName}}</h1>
+<app-shop *ngFor="let shop of shops"></app-shop>
+
+<input type="text" [(ngModel)]="shopName" />
+
+<button [disabled]="isButtonActive" (click)="onCreateShop()">Submit</button>
+
+<p *ngIf="isShopCreated;else noshop">Shop was created, shop name is {{shopName}}</p> 
+
+<ng-template #noshop>
+        <p>No shop was created</p>
+</ng-template>
 
 -->

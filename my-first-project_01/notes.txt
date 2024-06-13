@@ -22,6 +22,9 @@ class 1:
 6. ng g c shop
 
 ----------------------------------------------------------------------------
+shopping-mall.component.html, shopping-mall.component.ts, shopping-mall.component.css 
+files are used in this section
+----------------------------------------------------------------------------
 
 1. Selector :
 -------------
