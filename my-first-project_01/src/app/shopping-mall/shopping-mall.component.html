@@ -1,0 +1,69 @@
+<h1>{{shoppingMallName}}</h1> 
+<app-shop></app-shop>
+
+
+
+<!--
+1. String Interpolation - One way binding :
+-------------------------------------------
+
+<h1>{{shoppingMallName}}</h1> 
+<app-shop></app-shop>
+
+
+2. Property Binding - One way binding :
+---------------------------------------
+        Dynamically access for button . use type 2. Property Binding. property binding for one element 
+
+<h1>{{shoppingMallName}}</h1> 
+<app-shop></app-shop>
+
+<button [disabled]="isButtonActive">Submit</button> 
+<p>{{isButtonActive}}</p>
+
+
+3. Event Binding - One way binding :
+------------------------------------
+        Event Binding for trigger the button.
+
+Example 1:
+----------
+
+<h1>{{shoppingMallName}}</h1> 
+<app-shop></app-shop>
+
+<button [disabled]="isButtonActive" (click)="onCreateShop()">Submit</button> 
+<p>{{isButtonActive}}</p>
+
+<p>{{createNewShop}}</p>
+
+Example 2:
+----------
+
+<h1>{{shoppingMallName}}</h1>
+<app-shop></app-shop>
+
+<input type="text" (input)="onUpdateShopName($event)" />
+
+<button [disabled]="isButtonActive" (click)="onCreateShop()">Submit</button>
+<p>{{isButtonActive}}</p>
+
+<p>{{createNewShop}}</p>
+
+
+4. Two-way-Binding :
+--------------------
+
+<h1>{{shoppingMallName}}</h1>
+<app-shop></app-shop>
+
+<input type="text" [(ngModel)]="shopName" />
+
+<p>{{shopName}}</p>
+
+<button [disabled]="isButtonActive" (click)="onCreateShop()">Submit</button>
+<p>{{isButtonActive}}</p>
+
+<p>{{createNewShop}}</p>
+
+-->

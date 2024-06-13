@@ -1,0 +1,41 @@
+1. npm i
+
+2. ng serve
+
+----------------------------------------------------------------------------
+
+class 1:
+--------
+
+    project setup
+
+1. npm install -g @angular/cli
+
+2. ng new my-first-project --no-standalone
+
+3. cd my-first-project
+
+4. ng serve
+
+5. ng g c shopping-mall
+
+6. ng g c shop
+
+----------------------------------------------------------------------------
+
+1. Selector :
+-------------
+
+    1. Element Selector - mostly used Element Selector
+    2. Attribute Selector
+    3. CSS Selector
+
+----------------------------------------------------------------------------
+
+2. Types of Property Binding :
+------------------------------
+
+    1. String Interpolation - one way Binding
+    2. Property Binding - one way Binding
+    3. Event Binding - one way Binding
+    4. Two-way Binding
