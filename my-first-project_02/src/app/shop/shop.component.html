@@ -1,1 +1,23 @@
-<p>shop works!</p>
+<p [ngStyle]="{ color: getColor() }" [ngClass]="{ Opened: status === 'Opened'}">
+    shop no {{ id }} is {{ status }}
+</p>
+
+
+<!--
+1. Custom Data for ShopComponent:
+---------------------------------
+
+<p>shop no {{ id }} is {{ status }}</p>
+
+
+2. Attribute Directives:
+------------------------
+        first write to the shop.component.css file 
+
+
+<p [ngStyle]="{ color: getColor() }" [ngClass]="{ Opened: status === 'Opened'}">
+    shop no {{ id }} is {{ status }}
+</p>
+
+
+-->

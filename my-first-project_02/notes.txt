@@ -3,6 +3,15 @@
 2. ng serve
 
 ----------------------------------------------------------------------------
+shop.component.ts, shop.component.html, shop.component.css
+
 
 1. Custom Data for ShopComponent:
 ---------------------------------
+
+2. Attribute Directives:
+------------------------
+        Attribute Directives - Manipulate the styles for the elements. 
+
+3. push the shopName into the shopping-mall.component.ts file:
+--------------------------------------------------------------
