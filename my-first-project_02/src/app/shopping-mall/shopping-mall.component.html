@@ -1,5 +1,15 @@
-<h1>{{shoppingMallName}}</h1> 
-<app-shop></app-shop>
+<h1>{{shoppingMallName}}</h1>
+<app-shop *ngFor="let shop of shops"></app-shop>
+
+<input type="text" [(ngModel)]="shopName" />
+
+<button [disabled]="isButtonActive" (click)="onCreateShop()">Submit</button>
+
+<p *ngIf="isShopCreated;else noshop">Shop was created, shop name is {{shopName}}</p> <!-- * is structre deractive -->
+
+<ng-template #noshop>
+        <p>No shop was created</p>
+</ng-template>
 
 
 <!--
