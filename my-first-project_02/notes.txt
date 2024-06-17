@@ -15,3 +15,10 @@ shop.component.ts, shop.component.html, shop.component.css
 
 3. push the shopName into the shopping-mall.component.ts file:
 --------------------------------------------------------------
+
+4. How to use bootstrap in angular project:
+-------------------------------------------
+
+        open the terminal and run the command
+
+npm i bootstrap

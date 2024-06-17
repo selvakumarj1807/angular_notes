@@ -199,6 +199,7 @@ export class ShoppingMallComponent {
   onCreateShop(): void {
     this.createNewShop = 'New Shop is Added ' + this.shopName;
     this.isShopCreated = true;
+    //this.shops.push(this.shopName);
   }
 
   shopName: string = '';

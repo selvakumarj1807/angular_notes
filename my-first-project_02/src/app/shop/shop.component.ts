@@ -10,12 +10,13 @@ export class ShopComponent {
   status: string = 'Opened';
 
   constructor() {
-    this.status = Math.random() > 0.5 ? 'Opened' : 'Closed';
+    this.status = this.id > 5 ? 'Opened' : 'Closed';
   }
 
   getColor(): string {
-    return this.status === 'Opened' ? 'yellow' : 'black';
+    return this.status === 'Opened' ? 'yellow' : 'blue';
   }
+
 }
 
 
@@ -29,26 +30,38 @@ export class ShopComponent {
   id: number = Math.floor(Math.random() * (10 - 1 + 1) + 1);
   status: string = 'Opened';
 
-  constructor() {
-    this.status = Math.random() > 0.5 ? 'Opened' : 'Closed';
-  }
 }
 
 
 2. Attribute Directives:
 ------------------------
-
+Example 1:
+----------
 
 export class ShopComponent {
   id: number = Math.floor(Math.random() * (10 - 1 + 1) + 1);
   status: string = 'Opened';
 
   constructor() {
-    this.status = Math.random() > 0.5 ? 'Opened' : 'Closed';
+    this.status = this.id > 5 ? 'Opened' : 'Closed';
   }
 
-  getColor(): string{
-    return this.status === 'Opened' ? 'yellow' : 'black';
+}
+
+Example 2:
+----------
+
+export class ShopComponent {
+  id: number = Math.floor(Math.random() * (10 - 1 + 1) + 1);
+  status: string = 'Opened';
+
+  constructor() {
+    this.status = this.id > 5 ? 'Opened' : 'Closed';
   }
+
+  getColor(): string {
+    return this.status === 'Opened' ? 'yellow' : 'blue';
+  }
+
 }
 */

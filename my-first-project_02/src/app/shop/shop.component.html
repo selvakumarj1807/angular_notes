@@ -1,6 +1,7 @@
-<p [ngStyle]="{ color: getColor() }" [ngClass]="{ Opened: status === 'Opened'}">
+<p [ngClass]="{  Opened: status === 'Opened', Closed: status === 'Closed' }" [ngStyle]="{ color: getColor() }">
     shop no {{ id }} is {{ status }}
 </p>
+
 
 
 <!--
@@ -13,11 +14,19 @@
 2. Attribute Directives:
 ------------------------
         first write to the shop.component.css file 
+Example 1:
+----------
 
-
-<p [ngStyle]="{ color: getColor() }" [ngClass]="{ Opened: status === 'Opened'}">
+<p [ngClass]="{  Opened: status === 'Opened', Closed: status === 'Closed' }">
     shop no {{ id }} is {{ status }}
 </p>
 
+
+Example 2:
+----------
+
+<p [ngClass]="{  Opened: status === 'Opened', Closed: status === 'Closed' }" [ngStyle]="{ color: getColor() }">
+    shop no {{ id }} is {{ status }}
+</p>
 
 -->
