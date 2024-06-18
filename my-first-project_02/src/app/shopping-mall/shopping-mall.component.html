@@ -1,9 +1,9 @@
 <h1>{{shoppingMallName}}</h1>
 <app-shop *ngFor="let shop of shops"></app-shop>
 
-<input type="text" [(ngModel)]="shopName" />
+<input type="text" [(ngModel)]="shopName" class="form-control"/>
 
-<button [disabled]="isButtonActive" (click)="onCreateShop()">Submit</button>
+<button [disabled]="isButtonActive" (click)="onCreateShop()" class="btn btn-primary">Submit</button>
 
 <p *ngIf="isShopCreated;else noshop">Shop was created, shop name is {{shopName}}</p> <!-- * is structre deractive -->
 
@@ -11,4 +11,44 @@
         <p>No shop was created</p>
 </ng-template>
 
+
+<!--
+Example 1:
+----------
+
+        * is structre deractive 
+
+<h1>{{shoppingMallName}}</h1>
+<app-shop *ngFor="let shop of shops"></app-shop>
+
+<input type="text" [(ngModel)]="shopName"/>
+
+<button [disabled]="isButtonActive" (click)="onCreateShop()">Submit</button>
+
+<p *ngIf="isShopCreated;else noshop">Shop was created, shop name is {{shopName}}</p> 
+
+<ng-template #noshop>
+        <p>No shop was created</p>
+</ng-template>
+
+
+Example 2:
+----------
+
+        * is structre deractive 
+
+<h1>{{shoppingMallName}}</h1>
+<app-shop *ngFor="let shop of shops"></app-shop>
+
+<input type="text" [(ngModel)]="shopName" class="form-control"/>
+
+<button [disabled]="isButtonActive" (click)="onCreateShop()" class="btn btn-primary">Submit</button>
+
+<p *ngIf="isShopCreated;else noshop">Shop was created, shop name is {{shopName}}</p> 
+
+<ng-template #noshop>
+        <p>No shop was created</p>
+</ng-template>
+
+-->
 

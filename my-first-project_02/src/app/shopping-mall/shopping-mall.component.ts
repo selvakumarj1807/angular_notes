@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-shopping-mall',
   templateUrl: './shopping-mall.component.html',
+  //template: `<app-shop></app-shop>`, or template: `<h1>404 Page not Found</h1>`, if want to dont use templateUrl then use template for a single page.
   styleUrl: './shopping-mall.component.css'
+  //,encapsulation: ViewEncapsulation.Emulated,
 })
 export class ShoppingMallComponent {
   shoppingMallName: string = 'Shopping Mall'; //1. One way binding - String Interpolation
