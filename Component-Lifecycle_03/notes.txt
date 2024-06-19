@@ -1,0 +1,60 @@
+project setup :
+---------------
+open the terminal and run the command :
+---------------------------------------
+
+1. ng new Component-Lifecycle_03 --no-strict --standalone false --routing false
+
+        ? Which stylesheet format would you like to use? CSS             [ https://developer.mozilla.org/docs/Web/CSS ]
+        ? Do you want to enable Server-Side Rendering (SSR) and Static Site Generation (SSG/Prerendering)? No
+
+2. cd Component-Lifecycle_03
+
+3. npm i bootstrap
+
+        Configure the bootstrap in to the angular.json file
+
+        1. node_modules --> bootstrap --> dist --> css --> right click and select the Copy Relative Path for bootstrap.min.css file 
+
+        2. angular.json file --> add the "node_modules/bootstrap/dist/css/bootstrap.min.css", in styles property
+
+
+4. ng g c product-upsert --skip-tests
+
+
+5. ng g c product --skip-tests
+
+-----------------------------------------------------------------------------------------
+
+class 3:
+--------
+
+Input Decorator & Output Decorator :
+------------------------------------
+
+step 1:
+-------
+    change the app.component.html file
+
+step 2:
+-------
+    create the form in product-upsert.component.html file
+
+step 3:
+-------
+    create `_models` folder in `app` folder and create product.model.ts file in `_models` folder for create interface
+
+step 4:
+-------
+    import IProduct in product-upsert.component.ts file
+
+step 5:
+-------
+    relate or connect to the form and model :
+    ------------------------------
+
+    1. import FormsModule in app.module.ts file for two-way data binding
+
+    2. import ngModel in product-upsert.component.html file for input tag
+
+    3. ng serve in terminal and check the console
