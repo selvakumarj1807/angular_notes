@@ -46,12 +46,12 @@ step 3:
 
 step 4:
 -------
-    import IProduct in product-upsert.component.ts file
+    create variables and declare datatypes in product.model.ts file and import IProduct in product-upsert.component.ts file
 
 step 5:
 -------
     relate or connect to the form and model :
-    ------------------------------
+    -----------------------------------------
 
     1. import FormsModule in app.module.ts file for two-way data binding
 
