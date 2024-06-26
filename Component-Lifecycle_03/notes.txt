@@ -58,3 +58,31 @@ step 5:
     2. import ngModel in product-upsert.component.html file for input tag
 
     3. ng serve in terminal and check the console
+
+step 6:
+-------
+    1. maintain the product list :
+    ------------------------------
+
+        1. create productList in app.component.ts file
+
+        2. view the productList in product.component.html file and app.component.html file
+
+        3. ng serve
+
+    2. Component to Component data sharing (AppComponent - ProductComponent):
+    -------------------------------------------------------------------------
+
+        1. Input Decorator in product.component.ts file
+
+        2. show the productList values ( Data Binding ) in product.component.html file
+
+        3. show the productList values ( Directives ) in app.component.html file
+
+        4. ng serve
+
+        5. Output Decorator in product-upsert.component.ts file for Form values
+
+        6. capture the emit values in app.component.html file and app.component.ts file
+
+        7. ng serve
