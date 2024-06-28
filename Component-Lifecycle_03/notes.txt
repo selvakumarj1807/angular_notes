@@ -86,3 +86,18 @@ step 6:
         6. capture the emit values in app.component.html file and app.component.ts file
 
         7. ng serve
+
+step 7:
+-------
+    ng-content : load the html elements for one component to another component
+
+        1. product.component.html file
+
+        2. app.component.html file
+
+step 8:
+-------
+    Component Lifecycle :
+    ---------------------
+
+        1. product.component.ts file
