@@ -1,0 +1,51 @@
+<p><u>Without Formatting : </u>{{price}}</p>
+<p><u>With Formatting US : </u>{{price|currency}}</p>
+<p><u>With Formatting India: </u>{{price|currency:'INR'}}</p>
+<p><u>With Formatting India: </u>{{price|currency:'INR':false}}</p>
+
+
+<!--
+Example 1:
+----------
+
+<label for="">Type Number</label>
+<input type="text" [(ngModel)]="num">
+<div [ngSwitch]="num">
+    <div *ngSwitchCase="'1'">One</div>
+    <div *ngSwitchCase="'2'">Two</div>
+    <div *ngSwitchCase="'3'">Three</div>
+    <div *ngSwitchCase="'nonveg'">Non Veg</div>
+    <div *ngSwitchCase="'veg'">Veg</div>
+    <div *ngSwitchDefault>Enter Other Value</div>
+</div>
+
+Example 2:
+----------
+
+<p><u>Un formatted Date:</u> {{toDate}}</p>
+<p><u>formatted Date:</u> {{toDate|date}}</p>
+<p><u>Medium:</u> {{toDate|date:'medium'}}</p>
+<p><u>short:</u> {{toDate|date:'short'}}</p>
+<p><u>fulDate:</u> {{toDate|date:'fullDate'}}</p>
+<p><u>longDate:</u> {{toDate|date:'longDate'}}</p>
+
+Example 3:
+----------
+
+<p><u>Original Message: </u>{{message}}</p>
+<p><u>UpperCase: </u>{{message|uppercase}}</p>
+<p><u>LowerCase: </u>{{message|lowercase}}</p>
+<p><u>String Slicing 01: </u>{{message|slice:11:20}}</p>
+<p><u>String Slicing 02 : </u>{{message|slice:-7}}</p>
+<p><u>String Slicing 03: </u>{{message|slice:0:7}}</p>
+
+
+Example 4:
+----------
+
+<p><u>Without Formatting : </u>{{price}}</p>
+<p><u>With Formatting US : </u>{{price|currency}}</p>
+<p><u>With Formatting India: </u>{{price|currency:'INR'}}</p>
+<p><u>With Formatting India: </u>{{price|currency:'INR':false}}</p>
+
+-->
