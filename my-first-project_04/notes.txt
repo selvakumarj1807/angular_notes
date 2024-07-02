@@ -1,0 +1,21 @@
+class 4:
+--------
+
+    project setup
+
+
+1. ng new my-first-project --no-standalone
+
+2. cd my-first-project
+
+3. ng serve
+
+-------------------------------------------------------------------
+
+
+ngSwitch :
+----------
+
+    1. app.component.html 
+
+    2. app.component.ts
