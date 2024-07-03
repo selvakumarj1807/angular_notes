@@ -1,0 +1,95 @@
+class 5:
+--------
+
+    project setup
+    -------------
+
+1. ng new router_05 --no-standalone
+
+2. cd router_05
+
+3. ng serve
+
+-------------------------------------------------------------------
+
+    Create Components
+    -----------------
+
+1. ng g c home
+
+2. ng g c about
+
+3. ng g c contactus
+
+-------------------------------------------------------------------
+
+step 1:
+-------
+
+    1. import RouterModule and Routes in app.module.ts file
+
+    2. add router-outlet in app.component.html file
+
+    3. ng serve 
+
+    4. change the url 
+        
+        1. http://localhost:4200/
+
+        2. http://localhost:4200/about
+
+        3. http://localhost:4200/contact-us
+
+-------------------------------------------------------------------
+
+step 2:
+-------
+
+    1. add routerLink  (property binding ) in app.component.html file
+
+    2. add routerLink  (attribute) in app.component.html file
+
+-------------------------------------------------------------------
+
+step 3:
+-------
+
+    1. add css in app.component.css file
+
+-------------------------------------------------------------------
+
+step 4:
+-------
+
+    Create Components
+    -----------------
+
+1. ng g c post
+
+-------------------------------------------------------------------
+
+step 5:
+-------
+
+    1. add routerLink  (attribute) in home.component.html file
+
+    2. add Routes in app.module.ts file
+
+    3. get the Routes parameter values in post.component.ts file and post.component.html file
+
+-------------------------------------------------------------------
+
+step 6:
+-------
+
+    1. add css post.component.css file
+
+    2. add css home.component.css file
+
+-------------------------------------------------------------------
+
+step 7:
+-------
+
+    1. router to pass parameters and Angular's data binding to display the post details in 
+        home.component.ts file and home.component.html file
