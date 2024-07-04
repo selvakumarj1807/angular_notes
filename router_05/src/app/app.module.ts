@@ -35,3 +35,26 @@ const appRoutes:Routes = [
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+
+/*
+Example 1:
+----------
+const appRoutes:Routes = [
+  {path: '', component: HomeComponent},
+  {path: 'about', component: AboutComponent},
+  {path: 'contact-us', component: ContactusComponent},
+]
+
+
+Example 2:
+----------
+
+const appRoutes:Routes = [
+  {path: '', component: HomeComponent},
+  {path: 'about', component: AboutComponent},
+  {path: 'contact-us', component: ContactusComponent},
+  {path: 'post/:id', component: PostComponent}
+]
+*/
