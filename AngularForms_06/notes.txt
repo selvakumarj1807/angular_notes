@@ -1,0 +1,55 @@
+Angular Forms are Two type:
+---------------------------
+
+    1. Template-Driven-Forms
+
+    2. Reactive Forms
+
+Class 6:
+--------
+
+    1. ng new AngularForms_06 --no-standalone
+
+    2. cd AngularForms_06
+
+--------------------------------------------------------------------
+
+step 1:
+-------
+
+    1. ngModel requires FormsModule so import FormsModule in app.module.ts file 
+
+    2. ng g c template-driven-form
+
+    3. Create Form (input) in template-driven-form.component.html file.
+
+    4. add the selector in app.component.html file
+
+    5. ng serve
+
+    6. open the terminal and run the command
+
+        1. npm i bootstrap
+
+                Configure the bootstrap in to the angular.json file
+
+        2. node_modules --> bootstrap --> dist --> css --> right click and select the Copy Relative Path for bootstrap.min.css file 
+
+        3. angular.json file --> add the "node_modules/bootstrap/dist/css/bootstrap.min.css", in styles property
+
+        4. ng serve 
+
+--------------------------------------------------------------------
+
+step 2:
+-------
+
+    1. create the form in template-driven-form.component.html file and run the project
+
+    2. use ngFor Directive for select option value in 
+    template-driven-form.component.ts file and template-driven-form.component.html file and run the project
+
+    3. get the form (input) values in console.log and check the form elements - 
+    template-driven-form.component.ts file and template-driven-form.component.html file and check the console.log
+
+    4. ngModelGroup in template-driven-form.component.html file and check the console.log
