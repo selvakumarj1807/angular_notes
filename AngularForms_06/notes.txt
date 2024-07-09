@@ -53,3 +53,7 @@ step 2:
     template-driven-form.component.ts file and template-driven-form.component.html file and check the console.log
 
     4. ngModelGroup in template-driven-form.component.html file and check the console.log
+
+    5. set the values in template-driven-form.component.ts file and template-driven-form.component.html file use two way data binding
+
+--------------------------------------------------------------------

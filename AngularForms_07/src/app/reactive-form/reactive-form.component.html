@@ -1,0 +1,104 @@
+<div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+    <div class="container p-5 rounded shadow" style="background-color: silver;">
+        <h3 class="text-center mb-4">Reactive Form</h3>
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <label for="firstname" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="firstname" name="firstname" formControlName="firstName">
+            </div>
+            <div class="mb-3">
+                <label for="lastname" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lastname" name="lastname" formControlName="lastName">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" formControlName="email">
+            </div>
+            <div class="mb-3">
+                <label for="gender" class="form-label">Gender</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" value="male" id="genderMale" name="gender" formControlName="gender">
+                    <label class="form-check-label" for="genderMale">Male</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" value="female" id="genderFemale" name="gender" formControlName="gender">
+                    <label class="form-check-label" for="genderFemale">Female</label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="isMarried" class="form-label">Married</label>
+                <input type="checkbox" class="form-check-input" id="isMarried" name="isMarried" formControlName="isMarried">
+            </div>
+            <div class="mb-3">
+                <label for="country" class="form-label">Country</label>
+                <select class="form-select" name="country" id="country" formControlName="country">
+                    <option value="1">India</option>
+                    <option value="2">China</option>
+                    <option value="3">Japan</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Submit</button>
+        </form>
+    </div>
+</div>
+
+
+
+<!--
+example :
+---------
+
+<div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+    <div class="container p-5 rounded shadow" style="background-color: silver;">
+
+        <h3 class="text-center mb-4">Reactive Form</h3>
+
+        <form>
+            <div class="mb-3">
+                <label for="firstname" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="firstname" name="firstname">
+            </div>
+
+            <div class="mb-3">
+                <label for="lastname" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lastname" name="lastname">
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email">
+            </div>
+
+            <div class="mb-3">
+                <label for="gender" class="form-label">Gender</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" value="male" id="genderMale" name="gender">
+                    <label class="form-check-label" for="genderMale">Male</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" value="female" id="genderFemale" name="gender">
+                    <label class="form-check-label" for="genderFemale">Female</label>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="isMarried" class="form-label">Married</label>
+                <input type="checkbox" class="form-check-input" id="isMarried" name="isMarried">
+            </div>
+
+            <div class="mb-3">
+                <label for="country" class="form-label">Country</label>
+                <select class="form-select" name="country" id="country">
+                    <option selected="1" value="">India</option>
+                    <option selected="2" value="">China</option>
+                    <option selected="3" value="">japan</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Submit</button>
+        </form>
+
+    </div>
+</div>
+
+-->
