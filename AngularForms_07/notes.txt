@@ -22,12 +22,12 @@ step 1:
 
     3. add the selector in app.component.html file
 
-    4. Forms requires ReactiveFormsModule so import FormsModule in app.module.ts file
+    4. Forms requires ReactiveFormsModule so import ReactiveFormsModule in app.module.ts file
 
     5. Create Form (input) in reactive-form.component.html file.
 
-    6. create FormGroup object in reactive-form.component.ts file
-
+    6. ng serve
+    
     7. open the terminal and run the command
 
         1. npm i bootstrap
@@ -40,5 +40,17 @@ step 1:
 
         4. ng serve 
 
+    8. create FormGroup object in reactive-form.component.ts file
+
+    9. add formGroup, formControlName for Form (input) in reactive-form.component.html file.
+
+    10. add FormGroup in contactForm in reactive-form.component.ts file and add elements in reactive-form.component.html file.
+
+    11. set default values in Reactive Forms in reactive-form.component.ts.
 --------------------------------------------------------------------
+
+step 2:
+-------
+
+    
 
