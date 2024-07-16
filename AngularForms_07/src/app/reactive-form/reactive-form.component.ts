@@ -70,4 +70,27 @@ export class ReactiveFormComponent {
   }
 }
 
+
+Example 3:
+----------
+
+export class ReactiveFormComponent {
+  contactForm = new FormGroup({
+    firstName: new FormControl('tit'),
+    lastName: new FormControl('tech'),
+    email: new FormControl(),
+    gender: new FormControl(),
+    isMarried: new FormControl(),
+    country: new FormControl(),
+    address: new FormGroup({
+      city: new FormControl(),
+      pincode: new FormControl()
+    })
+  });
+
+  onSubmit() {
+    console.log(this.contactForm.value);
+  }
+}
+
 */

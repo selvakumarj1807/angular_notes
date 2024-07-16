@@ -44,9 +44,11 @@ step 1:
 
     9. add formGroup, formControlName for Form (input) in reactive-form.component.html file.
 
-    10. add FormGroup in contactForm in reactive-form.component.ts file and add elements in reactive-form.component.html file.
+    10. ng serve
 
-    11. set default values in Reactive Forms in reactive-form.component.ts.
+    11. add FormGroup in contactForm in reactive-form.component.ts file and add elements in reactive-form.component.html file.
+
+    12. set default values in Reactive Forms in reactive-form.component.ts.
 --------------------------------------------------------------------
 
 step 2:
