@@ -1,0 +1,44 @@
+Angular TemplateDriven Form validation :
+----------------------------------------
+
+Class 8:
+--------
+
+    1. ng new templateFormValidation_08 --no-standalone
+
+    2. cd templateFormValidation_08
+
+--------------------------------------------------------------------
+
+step 1:
+-------
+
+    1. ngModel requires FormsModule so import FormsModule in app.module.ts file 
+
+    2. ng g c template-driven-form
+
+    3. open the terminal and run the command
+
+        1. npm i bootstrap
+
+                Configure the bootstrap in to the angular.json file
+
+        2. node_modules --> bootstrap --> dist --> css --> right click and select the Copy Relative Path for bootstrap.min.css file 
+
+        3. angular.json file --> add the "node_modules/bootstrap/dist/css/bootstrap.min.css", in styles property
+
+        4. ng serve 
+
+--------------------------------------------------------------------
+
+step 2:
+-------
+
+    1. change the app.component.html, template-driven-form.component.html, template-driven-form.component.ts file
+         like TemplateDriven form
+
+    2. ng serve
+
+    3. set the required field in template-driven-form.component.html file
+
+    4. set the error message in template-driven-form.component.html file and template-driven-form.component.ts file

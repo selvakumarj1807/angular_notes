@@ -1,0 +1,322 @@
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="container p-5 rounded shadow" style="background-color: #b6ccdb;">
+
+        <h3 class="text-center mb-4">Template Driven Form</h3>
+
+        <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+            <div class="mb-3">
+                <label for="firstname" class="form-label">First Name</label>
+                <input type="text" class="form-control" #firstName="ngModel" id="firstname" name="firstname" [(ngModel)]="contact.firstName" required minlength="10">
+                <span *ngIf="!firstName.valid && firstName.touched"> <!--firstName.dirty-->
+                
+                    <span *ngIf="firstName.errors?.['minlength']" class="text-danger">
+                        Minimum Length is 10
+                    </span>
+
+                <span *ngIf="firstName.errors?.['required']" class="text-danger">
+                        FirstName is required
+                    </span>
+                </span>
+            </div>
+
+            <div class="mb-3">
+                <label for="lastname" class="form-label">Last Name</label>
+                <input type="text" class="form-control" #lastname="ngModel" id="lastname" name="lastname" [(ngModel)]="contact.lastName" maxlength="15" pattern="^[a-zA-Z]+$" required>
+
+                <span *ngIf="!lastname.valid && (lastname.touched || lastname.dirty) ">
+                    <span class="text-danger" *ngIf="lastname.errors?.['maxlength']">
+                        Maximum length is 15
+                    </span>
+                <span class="text-danger" *ngIf="lastname.errors?.['pattern']">
+                        Only Characters are allowed
+                    </span>
+                <span class="text-danger" *ngIf="lastname.errors?.['required']">
+                      Lastname is required
+                    </span>
+                </span>
+
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" #email="ngModel" id="email" name="email" [(ngModel)]="contact.email" required>
+
+                <span *ngIf="!email.valid && (email.touched || email.dirty) ">
+                    <span class="text-danger" *ngIf="email.errors?.['required']">
+                      Email is required
+                    </span>
+                </span>
+            </div>
+
+            <div class="mb-3">
+                <label for="gender" class="form-label">Gender</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" value="male" id="genderMale" #gender="ngModel" name="gender" [(ngModel)]="contact.gender" required>
+                    <label class="form-check-label" for="genderMale">Male</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" value="female" id="genderFemale" #gender="ngModel" name="gender" [(ngModel)]="contact.gender" required>
+                    <label class="form-check-label" for="genderFemale">Female</label>
+                </div>
+
+                <span *ngIf="!gender.valid && (gender.touched || gender.dirty) ">
+                    <span class="text-danger" *ngIf="gender.errors?.['required']">
+                      Gender is required
+                    </span>
+                </span>
+            </div>
+
+            <div class="mb-3">
+                <label for="isMarried" class="form-label">Married</label>
+                <input type="checkbox" class="form-check-input" #isMarried="ngModel" id="isMarried" name="isMarried" [(ngModel)]="contact.isMarried" required>
+
+                <span *ngIf="!isMarried.valid && (isMarried.touched || isMarried.dirty) ">
+                    <span class="text-danger" *ngIf="isMarried.errors?.['required']">
+                      Married status is required
+                    </span>
+                </span>
+            </div>
+
+            <div class="mb-3">
+                <label for="country" class="form-label">Country</label>
+                <select class="form-select" name="country" #country="ngModel" id="country" [(ngModel)]="contact.country" required>
+                    <option value="">Select</option>
+                    <option [ngValue]="country.id" *ngFor="let country of countryList">{{country.name}}</option>
+                </select>
+
+                <span *ngIf="!country.valid && (country.touched || country.dirty) ">
+                    <span class="text-danger" *ngIf="country.errors?.['required']">
+                      Country is required
+                    </span>
+                </span>
+            </div>
+
+            <div ngModelGroup="address">
+                <div class="mb-3">
+                    <label for="city" class="form-label">City</label>
+                    <input type="text" class="form-control" id="city" name="city" [(ngModel)]="contact.address.city">
+                </div>
+
+                <div class="mb-3">
+                    <label for="pincode" class="form-label">Pincode</label>
+                    <input type="text" class="form-control" id="pincode" name="pincode" [(ngModel)]="contact.address.pincode">
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100" [disabled]="!contactForm.valid">Submit</button>
+        </form>
+
+    </div>
+</div>
+
+
+<!--
+Example 1:
+----------
+
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="container p-5 rounded shadow" style="background-color: #b6ccdb;">
+
+        <h3 class="text-center mb-4">Template Driven Form</h3>
+
+        <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+            <div class="mb-3">
+                <label for="firstname" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="firstname" name="firstname" [(ngModel)]="contact.firstName">
+            </div>
+
+            <div class="mb-3">
+                <label for="lastname" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lastname" name="lastname" [(ngModel)]="contact.lastName">
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" [(ngModel)]="contact.email">
+            </div>
+
+            <div class="mb-3">
+                <label for="gender" class="form-label">Gender</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" value="male" id="genderMale" name="gender" [(ngModel)]="contact.gender">
+                    <label class="form-check-label" for="genderMale">Male</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" value="female" id="genderFemale" name="gender" [(ngModel)]="contact.gender">
+                    <label class="form-check-label" for="genderFemale">Female</label>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="isMarried" class="form-label">Married</label>
+                <input type="checkbox" class="form-check-input" id="isMarried" name="isMarried" [(ngModel)]="contact.isMarried">
+            </div>
+
+            <div class="mb-3">
+                <label for="country" class="form-label">Country</label>
+                <select class="form-select" name="country" id="country" [(ngModel)]="contact.country">
+                    <option value="">Select</option>
+                    <option [ngValue]="country.id" *ngFor="let country of countryList">{{country.name}}</option>
+                </select>
+            </div>
+
+            <div ngModelGroup="address">
+                <div class="mb-3">
+                    <label for="city" class="form-label">City</label>
+                    <input type="text" class="form-control" id="city" name="city" [(ngModel)]="contact.address.city">
+                </div>
+
+                <div class="mb-3">
+                    <label for="pincode" class="form-label">Pincode</label>
+                    <input type="text" class="form-control" id="pincode" name="pincode" [(ngModel)]="contact.address.pincode">
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Submit</button>
+        </form>
+
+    </div>
+</div>
+
+
+Example 2:
+----------
+
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="container p-5 rounded shadow" style="background-color: #b6ccdb;">
+
+        <h3 class="text-center mb-4">Template Driven Form</h3>
+
+        <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+            <div class="mb-3">
+                <label for="firstname" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="firstname" name="firstname" [(ngModel)]="contact.firstName" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="lastname" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lastname" name="lastname" [(ngModel)]="contact.lastName">
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" [(ngModel)]="contact.email">
+            </div>
+
+            <div class="mb-3">
+                <label for="gender" class="form-label">Gender</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" value="male" id="genderMale" name="gender" [(ngModel)]="contact.gender">
+                    <label class="form-check-label" for="genderMale">Male</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" value="female" id="genderFemale" name="gender" [(ngModel)]="contact.gender">
+                    <label class="form-check-label" for="genderFemale">Female</label>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="isMarried" class="form-label">Married</label>
+                <input type="checkbox" class="form-check-input" id="isMarried" name="isMarried" [(ngModel)]="contact.isMarried">
+            </div>
+
+            <div class="mb-3">
+                <label for="country" class="form-label">Country</label>
+                <select class="form-select" name="country" id="country" [(ngModel)]="contact.country">
+                    <option value="">Select</option>
+                    <option [ngValue]="country.id" *ngFor="let country of countryList">{{country.name}}</option>
+                </select>
+            </div>
+
+            <div ngModelGroup="address">
+                <div class="mb-3">
+                    <label for="city" class="form-label">City</label>
+                    <input type="text" class="form-control" id="city" name="city" [(ngModel)]="contact.address.city">
+                </div>
+
+                <div class="mb-3">
+                    <label for="pincode" class="form-label">Pincode</label>
+                    <input type="text" class="form-control" id="pincode" name="pincode" [(ngModel)]="contact.address.pincode">
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100" [disabled]="!contactForm.valid">Submit</button>
+        </form>
+
+    </div>
+</div>
+
+Example 3:
+----------
+        -- firstName.dirty
+
+
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="container p-5 rounded shadow" style="background-color: #b6ccdb;">
+
+        <h3 class="text-center mb-4">Template Driven Form</h3>
+
+        <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+            <div class="mb-3">
+                <label for="firstname" class="form-label">First Name</label>
+                <input type="text" class="form-control" #firstName="ngModel" id="firstname" name="firstname" [(ngModel)]="contact.firstName" required>
+                <span *ngIf="!firstName.valid && firstName.touched" class="text-danger"> 
+                    Invalid FirstName
+                </span>
+                </div>
+    
+                <div class="mb-3">
+                    <label for="lastname" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="lastname" name="lastname" [(ngModel)]="contact.lastName">
+                </div>
+    
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" [(ngModel)]="contact.email">
+                </div>
+    
+                <div class="mb-3">
+                    <label for="gender" class="form-label">Gender</label>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" value="male" id="genderMale" name="gender" [(ngModel)]="contact.gender">
+                        <label class="form-check-label" for="genderMale">Male</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" value="female" id="genderFemale" name="gender" [(ngModel)]="contact.gender">
+                        <label class="form-check-label" for="genderFemale">Female</label>
+                    </div>
+                </div>
+    
+                <div class="mb-3">
+                    <label for="isMarried" class="form-label">Married</label>
+                    <input type="checkbox" class="form-check-input" id="isMarried" name="isMarried" [(ngModel)]="contact.isMarried">
+                </div>
+    
+                <div class="mb-3">
+                    <label for="country" class="form-label">Country</label>
+                    <select class="form-select" name="country" id="country" [(ngModel)]="contact.country">
+                        <option value="">Select</option>
+                        <option [ngValue]="country.id" *ngFor="let country of countryList">{{country.name}}</option>
+                    </select>
+                </div>
+    
+                <div ngModelGroup="address">
+                    <div class="mb-3">
+                        <label for="city" class="form-label">City</label>
+                        <input type="text" class="form-control" id="city" name="city" [(ngModel)]="contact.address.city">
+                    </div>
+    
+                    <div class="mb-3">
+                        <label for="pincode" class="form-label">Pincode</label>
+                        <input type="text" class="form-control" id="pincode" name="pincode" [(ngModel)]="contact.address.pincode">
+                    </div>
+                </div>
+    
+                <button type="submit" class="btn btn-primary w-100" [disabled]="!contactForm.valid">Submit</button>
+            </form>
+    
+        </div>
+    </div>
+    
+
+-->
