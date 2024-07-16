@@ -39,8 +39,8 @@ step 2:
 
     2. ng serve
 
-    3. set the required field in template-driven-form.component.html file
+    3. set the required field in template-driven-form.component.html file and ng serve
 
-    4. set the error message in template-driven-form.component.html file and template-driven-form.component.ts file
+    4. set the error message in template-driven-form.component.html file and template-driven-form.component.ts file and ng serve
 
     5. set multi error message in template-driven-form.component.html file
