@@ -78,7 +78,10 @@ export class ReactiveFormComponent {
   contactForm = new FormGroup({
     firstName: new FormControl('tit'),
     lastName: new FormControl('tech'),
-    email: new FormControl(),
+    email: new FormControl({
+      value: 's@gmail.com',
+      disabled: true
+    }),
     gender: new FormControl(),
     isMarried: new FormControl(),
     country: new FormControl(),
