@@ -32,6 +32,8 @@ step 1:
     
     5. change the files app.component.html, reactive-form.component.html, reactive-form.component.ts like angular reactiveForm project.
 
+    6. ng serve
+
 --------------------------------------------------------------------
 
 step 2:
