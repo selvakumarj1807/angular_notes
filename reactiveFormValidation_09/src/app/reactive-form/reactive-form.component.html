@@ -1,0 +1,566 @@
+<div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+    <div class="container p-5 rounded shadow" style="background-color: silver;">
+        <h3 class="text-center mb-4">Reactive Form</h3>
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <label for="firstname" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="firstname" name="firstname" formControlName="firstName">
+
+                <span *ngIf="!firstname?.valid && (firstname?.touched || firstname?.dirty)">
+                    <span class="text-danger" *ngIf="firstname?.errors?.['required']">
+                       Firstname is required
+                    </span>
+                <span class="text-danger" *ngIf="firstname?.errors?.['minlength']">
+                       Minimum length is 10 Characters
+                    </span>
+                </span>
+
+            </div>
+            <div class="mb-3">
+                <label for="lastname" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lastname" name="lastname" formControlName="lastName">
+
+                <span *ngIf="!lastname?.valid && (lastname?.touched || lastname?.dirty)">
+                    <span class="text-danger" *ngIf="lastname?.errors?.['required']">
+                       Lastname is required
+                    </span>
+                <span class="text-danger" *ngIf="lastname?.errors?.['maxlength']">
+                       Maximum length is 15 Characters
+                    </span>
+                <span class="text-danger" *ngIf="lastname?.errors?.['pattern']">
+                       Only characters are allowed
+                    </span>
+                </span>
+
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" formControlName="email">
+
+                <span *ngIf="!email?.valid && (email?.touched || email?.dirty)">
+                    <span class="text-danger" *ngIf="email?.errors?.['required']">
+                       Email is required
+                    </span>
+                </span>
+            </div>
+            <div class="mb-3">
+                <label for="gender" class="form-label">Gender</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" value="male" id="genderMale" name="gender" formControlName="gender">
+                    <label class="form-check-label" for="genderMale">Male</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" value="female" id="genderFemale" name="gender" formControlName="gender">
+                    <label class="form-check-label" for="genderFemale">Female</label>
+                </div>
+
+
+                <span *ngIf="!gender?.valid && (gender?.touched || gender?.dirty)">
+                    <span class="text-danger" *ngIf="gender?.errors?.['required']">
+                       Gender is required
+                    </span>
+                </span>
+            </div>
+            <div class="mb-3">
+                <label for="isMarried" class="form-label">Married</label>
+                <input type="checkbox" class="form-check-input" id="isMarried" name="isMarried" formControlName="isMarried">
+
+                <span *ngIf="!marriedStatus?.valid && (marriedStatus?.touched || marriedStatus?.dirty)">
+                    <span class="text-danger" *ngIf="marriedStatus?.errors?.['required']">
+                       Married status is required
+                    </span>
+                </span>
+
+            </div>
+            <div class="mb-3">
+                <label for="country" class="form-label">Country</label>
+                <select class="form-select" name="country" id="country" formControlName="country">
+                    <option value="1">India</option>
+                    <option value="2">China</option>
+                    <option value="3">Japan</option>
+                </select>
+
+                <span *ngIf="!country?.valid && (country?.touched || country?.dirty)">
+                    <span class="text-danger" *ngIf="country?.errors?.['required']">
+                       Country is required
+                    </span>
+                </span>
+            </div>
+
+            <div formGroupName="address">
+                <div class="mb-3">
+                    <label for="city" class="form-label">City</label>
+                    <input type="text" class="form-control" id="city" name="city" formControlName="city">
+
+                    <span *ngIf="!city?.valid && (city?.touched || city?.dirty)">
+                        <span class="text-danger" *ngIf="city?.errors?.['required']">
+                           City is required
+                        </span>
+                    </span>
+                </div>
+
+                <div class="mb-3">
+                    <label for="pincode" class="form-label">Pincode</label>
+                    <input type="text" class="form-control" id="pincode" name="pincode" formControlName="pincode">
+
+                    <span *ngIf="!pincode?.valid && (pincode?.touched || pincode?.dirty)">
+                        <span class="text-danger" *ngIf="pincode?.errors?.['required']">
+                           Pincode is required
+                        </span>
+                    </span>
+
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100" [disabled]="!contactForm.valid">Submit</button>
+        </form>
+    </div>
+</div>
+
+
+
+<!--
+
+Example 1:
+----------
+
+<div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+    <div class="container p-5 rounded shadow" style="background-color: silver;">
+        <h3 class="text-center mb-4">Reactive Form</h3>
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <label for="firstname" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="firstname" name="firstname" formControlName="firstName">
+            </div>
+            <div class="mb-3">
+                <label for="lastname" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lastname" name="lastname" formControlName="lastName">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" formControlName="email">
+            </div>
+            <div class="mb-3">
+                <label for="gender" class="form-label">Gender</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" value="male" id="genderMale" name="gender" formControlName="gender">
+                    <label class="form-check-label" for="genderMale">Male</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" value="female" id="genderFemale" name="gender" formControlName="gender">
+                    <label class="form-check-label" for="genderFemale">Female</label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="isMarried" class="form-label">Married</label>
+                <input type="checkbox" class="form-check-input" id="isMarried" name="isMarried" formControlName="isMarried">
+            </div>
+            <div class="mb-3">
+                <label for="country" class="form-label">Country</label>
+                <select class="form-select" name="country" id="country" formControlName="country">
+                    <option value="1">India</option>
+                    <option value="2">China</option>
+                    <option value="3">Japan</option>
+                </select>
+            </div>
+
+            <div formGroupName="address">
+                <div class="mb-3">
+                    <label for="city" class="form-label">City</label>
+                    <input type="text" class="form-control" id="city" name="city" formControlName="city">
+                </div>
+
+                <div class="mb-3">
+                    <label for="pincode" class="form-label">Pincode</label>
+                    <input type="text" class="form-control" id="pincode" name="pincode" formControlName="pincode">
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Submit</button>
+        </form>
+    </div>
+</div>
+
+
+Exampe 2:
+---------
+
+<div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+    <div class="container p-5 rounded shadow" style="background-color: silver;">
+        <h3 class="text-center mb-4">Reactive Form</h3>
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <label for="firstname" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="firstname" name="firstname" formControlName="firstName">
+            </div>
+            <div class="mb-3">
+                <label for="lastname" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lastname" name="lastname" formControlName="lastName">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" formControlName="email">
+            </div>
+            <div class="mb-3">
+                <label for="gender" class="form-label">Gender</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" value="male" id="genderMale" name="gender" formControlName="gender">
+                    <label class="form-check-label" for="genderMale">Male</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" value="female" id="genderFemale" name="gender" formControlName="gender">
+                    <label class="form-check-label" for="genderFemale">Female</label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="isMarried" class="form-label">Married</label>
+                <input type="checkbox" class="form-check-input" id="isMarried" name="isMarried" formControlName="isMarried">
+            </div>
+            <div class="mb-3">
+                <label for="country" class="form-label">Country</label>
+                <select class="form-select" name="country" id="country" formControlName="country">
+                    <option value="1">India</option>
+                    <option value="2">China</option>
+                    <option value="3">Japan</option>
+                </select>
+            </div>
+
+            <div formGroupName="address">
+                <div class="mb-3">
+                    <label for="city" class="form-label">City</label>
+                    <input type="text" class="form-control" id="city" name="city" formControlName="city">
+                </div>
+
+                <div class="mb-3">
+                    <label for="pincode" class="form-label">Pincode</label>
+                    <input type="text" class="form-control" id="pincode" name="pincode" formControlName="pincode">
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100" [disabled]="!contactForm.valid">Submit</button>
+        </form>
+    </div>
+</div>
+
+Example 3:
+----------
+
+<div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+    <div class="container p-5 rounded shadow" style="background-color: silver;">
+        <h3 class="text-center mb-4">Reactive Form</h3>
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <label for="firstname" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="firstname" name="firstname" formControlName="firstName">
+
+                <span *ngIf="!contactForm.controls.firstName.valid && contactForm.controls.firstName.touched" class="text-danger">                 
+                       Firstname is required
+                 </span>
+            </div>
+            <div class="mb-3">
+                <label for="lastname" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lastname" name="lastname" formControlName="lastName">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" formControlName="email">
+            </div>
+            <div class="mb-3">
+                <label for="gender" class="form-label">Gender</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" value="male" id="genderMale" name="gender" formControlName="gender">
+                    <label class="form-check-label" for="genderMale">Male</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" value="female" id="genderFemale" name="gender" formControlName="gender">
+                    <label class="form-check-label" for="genderFemale">Female</label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="isMarried" class="form-label">Married</label>
+                <input type="checkbox" class="form-check-input" id="isMarried" name="isMarried" formControlName="isMarried">
+            </div>
+            <div class="mb-3">
+                <label for="country" class="form-label">Country</label>
+                <select class="form-select" name="country" id="country" formControlName="country">
+                    <option value="1">India</option>
+                    <option value="2">China</option>
+                    <option value="3">Japan</option>
+                </select>
+            </div>
+
+            <div formGroupName="address">
+                <div class="mb-3">
+                    <label for="city" class="form-label">City</label>
+                    <input type="text" class="form-control" id="city" name="city" formControlName="city">
+                </div>
+
+                <div class="mb-3">
+                    <label for="pincode" class="form-label">Pincode</label>
+                    <input type="text" class="form-control" id="pincode" name="pincode" formControlName="pincode">
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100" [disabled]="!contactForm.valid">Submit</button>
+        </form>
+    </div>
+</div>
+
+Example 4:
+----------
+
+<div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+    <div class="container p-5 rounded shadow" style="background-color: silver;">
+        <h3 class="text-center mb-4">Reactive Form</h3>
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <label for="firstname" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="firstname" name="firstname" formControlName="firstName">
+
+                <span *ngIf="!firstname?.valid && firstname?.touched" class="text-danger">                 
+                       Firstname is required
+                 </span>
+            </div>
+            <div class="mb-3">
+                <label for="lastname" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lastname" name="lastname" formControlName="lastName">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" formControlName="email">
+            </div>
+            <div class="mb-3">
+                <label for="gender" class="form-label">Gender</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" value="male" id="genderMale" name="gender" formControlName="gender">
+                    <label class="form-check-label" for="genderMale">Male</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" value="female" id="genderFemale" name="gender" formControlName="gender">
+                    <label class="form-check-label" for="genderFemale">Female</label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="isMarried" class="form-label">Married</label>
+                <input type="checkbox" class="form-check-input" id="isMarried" name="isMarried" formControlName="isMarried">
+            </div>
+            <div class="mb-3">
+                <label for="country" class="form-label">Country</label>
+                <select class="form-select" name="country" id="country" formControlName="country">
+                    <option value="1">India</option>
+                    <option value="2">China</option>
+                    <option value="3">Japan</option>
+                </select>
+            </div>
+
+            <div formGroupName="address">
+                <div class="mb-3">
+                    <label for="city" class="form-label">City</label>
+                    <input type="text" class="form-control" id="city" name="city" formControlName="city">
+                </div>
+
+                <div class="mb-3">
+                    <label for="pincode" class="form-label">Pincode</label>
+                    <input type="text" class="form-control" id="pincode" name="pincode" formControlName="pincode">
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100" [disabled]="!contactForm.valid">Submit</button>
+        </form>
+    </div>
+</div>
+
+Example 5:
+----------
+
+<div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+    <div class="container p-5 rounded shadow" style="background-color: silver;">
+        <h3 class="text-center mb-4">Reactive Form</h3>
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <label for="firstname" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="firstname" name="firstname" formControlName="firstName">
+
+                <span *ngIf="!firstname?.valid && (firstname?.touched || firstname?.dirty)">
+                    <span class="text-danger" *ngIf="firstname?.errors?.['required']">
+                       Firstname is required
+                    </span>
+                <span class="text-danger" *ngIf="firstname?.errors?.['minlength']">
+                       Minimum length is 10 Characters
+                    </span>
+                </span>
+
+            </div>
+            <div class="mb-3">
+                <label for="lastname" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lastname" name="lastname" formControlName="lastName">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" formControlName="email">
+            </div>
+            <div class="mb-3">
+                <label for="gender" class="form-label">Gender</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" value="male" id="genderMale" name="gender" formControlName="gender">
+                    <label class="form-check-label" for="genderMale">Male</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" value="female" id="genderFemale" name="gender" formControlName="gender">
+                    <label class="form-check-label" for="genderFemale">Female</label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="isMarried" class="form-label">Married</label>
+                <input type="checkbox" class="form-check-input" id="isMarried" name="isMarried" formControlName="isMarried">
+            </div>
+            <div class="mb-3">
+                <label for="country" class="form-label">Country</label>
+                <select class="form-select" name="country" id="country" formControlName="country">
+                    <option value="1">India</option>
+                    <option value="2">China</option>
+                    <option value="3">Japan</option>
+                </select>
+            </div>
+
+            <div formGroupName="address">
+                <div class="mb-3">
+                    <label for="city" class="form-label">City</label>
+                    <input type="text" class="form-control" id="city" name="city" formControlName="city">
+                </div>
+
+                <div class="mb-3">
+                    <label for="pincode" class="form-label">Pincode</label>
+                    <input type="text" class="form-control" id="pincode" name="pincode" formControlName="pincode">
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100" [disabled]="!contactForm.valid">Submit</button>
+        </form>
+    </div>
+</div>
+
+Example 6:
+----------
+
+<div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+    <div class="container p-5 rounded shadow" style="background-color: silver;">
+        <h3 class="text-center mb-4">Reactive Form</h3>
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <label for="firstname" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="firstname" name="firstname" formControlName="firstName">
+
+                <span *ngIf="!firstname?.valid && (firstname?.touched || firstname?.dirty)">
+                    <span class="text-danger" *ngIf="firstname?.errors?.['required']">
+                       Firstname is required
+                    </span>
+                <span class="text-danger" *ngIf="firstname?.errors?.['minlength']">
+                       Minimum length is 10 Characters
+                    </span>
+                </span>
+
+            </div>
+            <div class="mb-3">
+                <label for="lastname" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lastname" name="lastname" formControlName="lastName">
+
+                <span *ngIf="!lastname?.valid && (lastname?.touched || lastname?.dirty)">
+                    <span class="text-danger" *ngIf="lastname?.errors?.['required']">
+                       Lastname is required
+                    </span>
+                <span class="text-danger" *ngIf="lastname?.errors?.['maxlength']">
+                       Maximum length is 15 Characters
+                    </span>
+                <span class="text-danger" *ngIf="lastname?.errors?.['pattern']">
+                       Only characters are allowed
+                    </span>
+                </span>
+
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" formControlName="email">
+
+                <span *ngIf="!email?.valid && (email?.touched || email?.dirty)">
+                    <span class="text-danger" *ngIf="email?.errors?.['required']">
+                       Email is required
+                    </span>
+                </span>
+            </div>
+            <div class="mb-3">
+                <label for="gender" class="form-label">Gender</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" value="male" id="genderMale" name="gender" formControlName="gender">
+                    <label class="form-check-label" for="genderMale">Male</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" value="female" id="genderFemale" name="gender" formControlName="gender">
+                    <label class="form-check-label" for="genderFemale">Female</label>
+                </div>
+
+
+                <span *ngIf="!gender?.valid && (gender?.touched || gender?.dirty)">
+                    <span class="text-danger" *ngIf="gender?.errors?.['required']">
+                       Gender is required
+                    </span>
+                </span>
+            </div>
+            <div class="mb-3">
+                <label for="isMarried" class="form-label">Married</label>
+                <input type="checkbox" class="form-check-input" id="isMarried" name="isMarried" formControlName="isMarried">
+
+                <span *ngIf="!marriedStatus?.valid && (marriedStatus?.touched || marriedStatus?.dirty)">
+                    <span class="text-danger" *ngIf="marriedStatus?.errors?.['required']">
+                       Married status is required
+                    </span>
+                </span>
+
+            </div>
+            <div class="mb-3">
+                <label for="country" class="form-label">Country</label>
+                <select class="form-select" name="country" id="country" formControlName="country">
+                    <option value="1">India</option>
+                    <option value="2">China</option>
+                    <option value="3">Japan</option>
+                </select>
+
+                <span *ngIf="!country?.valid && (country?.touched || country?.dirty)">
+                    <span class="text-danger" *ngIf="country?.errors?.['required']">
+                       Country is required
+                    </span>
+                </span>
+            </div>
+
+            <div formGroupName="address">
+                <div class="mb-3">
+                    <label for="city" class="form-label">City</label>
+                    <input type="text" class="form-control" id="city" name="city" formControlName="city">
+
+                    <span *ngIf="!city?.valid && (city?.touched || city?.dirty)">
+                        <span class="text-danger" *ngIf="city?.errors?.['required']">
+                           City is required
+                        </span>
+                    </span>
+                </div>
+
+                <div class="mb-3">
+                    <label for="pincode" class="form-label">Pincode</label>
+                    <input type="text" class="form-control" id="pincode" name="pincode" formControlName="pincode">
+
+                    <span *ngIf="!pincode?.valid && (pincode?.touched || pincode?.dirty)">
+                        <span class="text-danger" *ngIf="pincode?.errors?.['required']">
+                           Pincode is required
+                        </span>
+                    </span>
+
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100" [disabled]="!contactForm.valid">Submit</button>
+        </form>
+    </div>
+</div>
+
+
+-->
