@@ -26,3 +26,64 @@ Create Components for angular Project
 
 -------------------------------------------------------------------
 
+step 3:
+-------
+
+    1. create routes in app.module.ts file
+
+    2. create router-outlet in app.component.html file
+
+    3. ng serve and change the url path
+
+-------------------------------------------------------------------
+
+step 4:
+-------
+
+    Add html elements and Add css properties for all Components
+
+        1. navbar.component
+
+        2. home.component
+
+        3. register.component
+
+        4. login.component
+
+        5. dashboard.component
+
+        6. ng serve
+
+-------------------------------------------------------------------
+
+step 5:
+-------
+
+    Conditional base navbar links
+
+        1. create ng template in navbar.component.html file
+
+        2. ng serve
+
+        3. service
+
+            1. open terminal and run the command
+
+                1. ng generate service _services/auth
+
+            2. create authenticated function in auth.service.ts file
+
+            3. use authenticated function in navbar.component.ts file
+
+            4. call authenticated function in navbar.component.html file
+
+-------------------------------------------------------------------
+
+step 6:
+-------
+
+     Block access to dashboard page in url
+
+        1. Create canAccess function in auth.service.ts file
+
+        2. call the canAccess function in dashboard.component.ts file
