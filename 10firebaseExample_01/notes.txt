@@ -46,6 +46,26 @@ step 4:
 
         2. home.component
 
+        Add bootstrap :
+        ---------------
+
+                
+                1. open the terminal and run the command
+
+                    1. npm i bootstrap
+
+                            Configure the bootstrap in to the angular.json file
+
+                    2. node_modules --> bootstrap --> dist --> css --> right click and select the Copy Relative Path for bootstrap.min.css file 
+
+                    3. angular.json file --> add the "node_modules/bootstrap/dist/css/bootstrap.min.css", in styles property
+
+                
+                5. change the files app.component.html, reactive-form.component.html, reactive-form.component.ts like angular reactiveForm project.
+
+                6. ng serve
+
+
         3. register.component
 
         4. login.component
