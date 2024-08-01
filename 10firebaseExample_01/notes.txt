@@ -102,8 +102,20 @@ step 5:
 step 6:
 -------
 
-     Block access to dashboard page in url
+    Block access to dashboard page in url
 
         1. Create canAccess function in auth.service.ts file
 
         2. call the canAccess function in dashboard.component.ts file
+
+-------------------------------------------------------------------
+
+step 7:
+-------
+
+    Form Validation:
+        import FormsModule in app.module.ts file
+
+        1. use template driven form validation in register.component.html and register.component.ts file
+
+        2. Loading icon and Button disabled
