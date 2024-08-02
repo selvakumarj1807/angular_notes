@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes:Routes = [
   {path:'',component:HomeComponent },
@@ -31,8 +32,8 @@ const routes:Routes = [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(routes),
-    FormsModule
-
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     provideClientHydration()

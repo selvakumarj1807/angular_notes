@@ -119,3 +119,10 @@ step 7:
         1. use template driven form validation in register.component.html and register.component.ts file
 
         2. Loading icon and Button disabled
+
+-------------------------------------------------------------------
+
+step 8:
+-------
+
+    Register API Integration
