@@ -7,38 +7,38 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  constructor(private router:Router,private http:HttpClient) { }
+  constructor(private router: Router, private http: HttpClient) { }
 
-  isAuthenticated():boolean{
-    if(sessionStorage.getItem('token')!==null){
+  isAuthenticated(): boolean {
+    if (sessionStorage.getItem('token') !== null) {
       return true;
     }
     return false;
   }
 
 
-  canAccess(){
-    if(!this.isAuthenticated()){
+  canAccess() {
+    if (!this.isAuthenticated()) {
       // redirect to login
       this.router.navigate(['/login']);
     }
   }
 
-  register(name:string,email:string,password:string){
+  register(name: string, email: string, password: string) {
     //send data to register api (firebase)
     //send data to register api (firebase)
     return this.http
-    .post<{idToken:string}>(
-      'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDl1yPJs_ZPT37-RBXed76ZXX9I0BG7Ntk',
-      {displayName:name,email:email,password:password}
-    )
+      .post<{ idToken: string }>(
+        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDl1yPJs_ZPT37-RBXed76ZXX9I0BG7Ntk',
+        { displayName: name, email: email, password: password }
+      )
   }
 
-  storeToken(token:string){
-    sessionStorage.setItem('token',token);
+  storeToken(token: string) {
+    sessionStorage.setItem('token', token);
   }
 
-  
+
 }
 
 
@@ -82,5 +82,42 @@ export class AuthService {
   }
 }
 
+Example 03:
+-----------
 
+export class AuthService {
+
+  constructor(private router:Router,private http:HttpClient) { }
+
+  isAuthenticated():boolean{
+    if(sessionStorage.getItem('token')!==null){
+      return true;
+    }
+    return false;
+  }
+
+
+  canAccess(){
+    if(!this.isAuthenticated()){
+      // redirect to login
+      this.router.navigate(['/login']);
+    }
+  }
+
+  register(name:string,email:string,password:string){
+    //send data to register api (firebase)
+    //send data to register api (firebase)
+    return this.http
+    .post<{idToken:string}>(
+      'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDl1yPJs_ZPT37-RBXed76ZXX9I0BG7Ntk',
+      {displayName:name,email:email,password:password}
+    )
+  }
+
+  storeToken(token:string){
+    sessionStorage.setItem('token',token);
+  }
+
+  
+}
 */
