@@ -113,7 +113,8 @@ step 6:
 step 7:
 -------
 
-    Form Validation:
+    Register Form Validation :
+    --------------------------
         import FormsModule in app.module.ts file
 
         1. use template driven form validation in register.component.html and register.component.ts file
@@ -127,9 +128,38 @@ step 8:
 
     Register API Integration
 
-    Sign Up :
-    ---------
+    Register page :
+    ---------------
         1. store the values in firbase. first create firbase account for authentication.
 
         2. change the auth.service.ts file, register.component.ts file, register.component.html file
+
+        3. ng serve
+
+    Login Page :
+    ------------
+
+        Login Form Validation & Login API Integration :
+        -----------------------------------------------
+
+            1. change login.component.html and login.component.ts and auth.service.ts file
+
+            2. ng serve
+
+    Get Details :
+    -------------
+
+            1. change dashboard.component.html and dashboard.component.ts and auth.service.ts file
+
+            2. ng serve
+
+    Log Out :
+    ---------
+
+            1. auth.service.ts file, navbar.component.html file, navbar.component.ts file
+
+            2. ng serve
+
+
+
 
