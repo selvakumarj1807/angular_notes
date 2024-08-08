@@ -130,6 +130,8 @@ step 8:
 
     Register page :
     ---------------
+    imporm HttpClientModule in app.module.ts file
+
         1. store the values in firbase. first create firbase account for authentication.
 
         2. change the auth.service.ts file, register.component.ts file, register.component.html file
